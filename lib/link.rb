@@ -1,3 +1,4 @@
+require 'byebug'
 class Link
   attr_accessor :value, :prev, :next
   def initialize(val)
@@ -19,11 +20,17 @@ class Link
 
   def insert_right(link)
     raise "Inserting a link that's already connected!" unless link.is_detached?
-    right = self.next
-    right.prev = link
+    right = self.next if self.next
+    right.prev = link if right
     link.prev = self
-    link.next = right
     self.next = link
+    link.next = right if right
+    # link.prev = self
+    # link.next = self.next
+    # self.next.prev = link if self.next
+    # self.next = link
+
+    nil
   end
 
   def remove
@@ -37,10 +44,11 @@ class Link
 end
 
 class SentinelLink < Link
-  attr_accessor :first, :last, :side
+  attr_accessor :side
   
   def initialize(side)
     raise "Not possible" unless [:first, :last].include?(side)
+    self.side = side
   end
 
   def prev=(link)
