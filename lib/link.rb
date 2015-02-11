@@ -25,10 +25,6 @@ class Link
     link.prev = self
     self.next = link
     link.next = right if right
-    # link.prev = self
-    # link.next = self.next
-    # self.next.prev = link if self.next
-    # self.next = link
 
     nil
   end
@@ -45,7 +41,7 @@ end
 
 class SentinelLink < Link
   attr_accessor :side
-  
+
   def initialize(side)
     raise "Not possible" unless [:first, :last].include?(side)
     self.side = side
