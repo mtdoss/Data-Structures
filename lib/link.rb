@@ -31,6 +31,8 @@ class Link
     right = self.next if self.next
     left.next, right.prev = right, left
     self.next, self.prev = nil, nil
+
+    self
   end
 end
 
