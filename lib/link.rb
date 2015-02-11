@@ -10,7 +10,7 @@ class Link
 
   def insert_left(link)
     raise "Inserting a link that's already connected!" unless link.is_detached?
-    left = self.prev if self.prev
+    left = self.prev
     left.next = link
     link.next = self
     self.prev = link
@@ -19,7 +19,7 @@ class Link
 
   def insert_right(link)
     raise "Inserting a link that's already connected!" unless link.is_detached?
-    right = self.next if self.next
+    right = self.next
     right.prev = link
     link.prev = self
     link.next = right
@@ -27,8 +27,8 @@ class Link
   end
 
   def remove
-    left = self.prev if self.prev
-    right = self.next if self.next
+    left = self.prev
+    right = self.next
     left.next, right.prev = right, left
     self.next, self.prev = nil, nil
 
