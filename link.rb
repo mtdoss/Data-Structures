@@ -42,6 +42,34 @@ class SentinelLink < Link
   end
 
   def prev=(link)
-    
+    if side == :last
+      return super(link)
+    elsif link.nil?
+      # fine
+    else
+      raise "Can't set previous of first sentinel"
+    end      
   end 
+
+  def next=(link)
+    if side == :first
+      return super(link)
+    elsif link.nil?
+      #fine
+    else
+      raise "Can't set next of last sentinel"
+    end
+  end
+
+  def value
+    raise "Sentinels don't have values"
+  end
+
+  def value=(val)
+    raise "Sentinels can't set values"
+  end
+
+  def remove
+    raise "Can't remove sentinels"
+  end
 end
