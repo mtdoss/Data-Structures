@@ -87,4 +87,17 @@ describe LinkedList do
     expect(list.shift_value).to eq(10)
     expect(list.empty?).to be true
   end
+
+  it 'correctly reverses a linked list' do
+    [1, 2, 3, 4, 5, 6, 7].each do |val|
+      link.push(val)
+    end
+    expect(list[0]).to eq(1)
+    expect(list[1]).to eq(2)
+    expect(list[2]).to eq(3)
+    list.reverse!
+    expect(list[0]).to eq(7)
+    expect(list[1]).to eq(6)
+    expect(list[2]).to eq(5)
+  end
 end
