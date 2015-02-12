@@ -27,4 +27,21 @@ describe LinkedList do
     expect(list[1].value).to eq(10)
   end
 
+  it 'unshifts links into the list' do
+    link1 = Link.new(5)
+    link2 = Link.new(10)
+    list.unshift_link(link1)
+    list.unshift_link(link2)
+
+    expect(list[0]).to eq(link2)
+    expect(list[0].value).to eq(10)
+    expect(list[1]).to eq(link1)
+    expect(list[1].value).to eq(5)
+
+    expect(link2.next).to eq(link1)
+    expect(link1.prev).to eq(link2)
+    expect(link2.prev).to eq(list.first)
+    expect(list.first.next).to eq(link2)
+  end
+
 end
