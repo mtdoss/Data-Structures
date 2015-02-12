@@ -1,6 +1,7 @@
 require 'byebug'
 require 'linked_list'
 
+#TODO: DRY this up! pushing values in each block
 describe LinkedList do
   subject(:list) { LinkedList.new }
   it "pushes links into the list" do
@@ -66,6 +67,24 @@ describe LinkedList do
 
     expect(list.pop_value).to eq(10)
     expect(list.pop_value).to eq(5)
+    expect(list.empty?).to be true
+  end
+
+  it 'correctly shifts links' do
+    link1 = list.push(5)
+    link2 = list.push(10)
+    
+    expect(list.shift_link).to eq(link1)
+    expect(list.shift_link).to eq(link2)
+    expect(list.empty?).to be true
+  end
+
+  it 'correctly shifts values' do
+    list.push(5)
+    list.push(10)
+
+    expect(list.shift_value).to eq(5)
+    expect(list.shift_value).to eq(10)
     expect(list.empty?).to be true
   end
 end
