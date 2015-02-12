@@ -44,4 +44,28 @@ describe LinkedList do
     expect(list.first.next).to eq(link2)
   end
 
+  it 'correctly identifies empty lists' do
+    expect(list.empty?).to be true
+    list.push(5)
+    expect(list.empty?).to be false
+  end
+
+  it 'correctly pops links' do
+    list.push(5)
+    list.push(10)
+    
+    link = list.pop_link
+    expect(link.value).to eq(10)
+    list.pop_link
+    expect(list.empty?).to be true
+  end
+
+  it 'correctly pops values' do
+    list.push(5)
+    list.push(10)
+
+    expect(list.pop_value).to eq(10)
+    expect(list.pop_value).to eq(5)
+    expect(list.empty?).to be true
+  end
 end
