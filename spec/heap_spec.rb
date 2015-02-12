@@ -23,5 +23,18 @@ describe Heap do
     expect(Heap.heapify_up([4, 6, 5, 7, 8, 1], 5))
     .to eq([1, 6, 4, 7, 8, 5])
   end
+
+  it 'pushes correctly' do
+    heap = Heap.new
+    [17, 19, 37, 3, 7, 2, 1].each { |el| heap.push(el) }
+    expect(heap.store).to eq([1, 7, 2, 19, 17, 37, 3])
+  end
+
+  it 'extracts correctly' do
+    heap = Heap.new
+    heap.store = [1, 7, 2, 19, 17, 37, 3]
+    expect(heap.extract).to eq(1)
+    expect(heap.store).to eq([2, 7, 3, 19, 17, 37])
+  end
   
 end

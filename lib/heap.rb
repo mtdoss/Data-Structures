@@ -1,5 +1,6 @@
 # Binary Min Heap
 class Heap
+  attr_accessor :store
   def initialize
     self.store = []    
   end
@@ -53,5 +54,22 @@ class Heap
 
     arr[parent_idx], arr[swap_idx] = arr[swap_idx], arr[parent_idx]
     heapify_down(arr, swap_idx)
+  end
+
+  def push(val)
+    store << val
+    self.class.heapify_up(store, store.length-1)
+  end
+
+  def extract
+    val = store[0]
+    if count == 0
+      store.pop
+    else
+      store[0] = store.pop
+      self.class.heapify_down(store, 0)
+    end
+
+    val
   end
 end
