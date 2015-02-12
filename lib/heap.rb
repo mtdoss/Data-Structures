@@ -14,6 +14,7 @@ class Heap
   end
 
   def self.parent_index(child_index, len)
+    raise "Root element has no parent" if child_index == 0
     (child_index - 1) / 2    
   end
 
@@ -62,6 +63,7 @@ class Heap
   end
 
   def extract
+    raise "Empty heap" if count == 0
     val = store[0]
     if count == 0
       store.pop
@@ -71,5 +73,10 @@ class Heap
     end
 
     val
+  end
+
+  def peek
+    raise "Empty heap" if count == 0
+    store[0]
   end
 end
