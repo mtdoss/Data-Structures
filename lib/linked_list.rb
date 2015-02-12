@@ -61,4 +61,24 @@ class LinkedList
     link
   end
 
+  # mimicing a singly linked list
+  def reverse!
+    raise "Empty linked list!" if first.next == last
+    head = first.next
+    curr = head.next
+    next_link = curr.next
+    head.next = last
+    prev = head
+    last_link = nil
+
+    until next_link == last
+      next_link = curr.next
+      curr.next = prev
+      prev = curr
+      curr = next_link
+      last_link = prev
+    end
+    first.next = last_link
+  end
+
 end
