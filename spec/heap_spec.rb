@@ -36,5 +36,11 @@ describe Heap do
     expect(heap.extract).to eq(1)
     expect(heap.store).to eq([2, 7, 3, 19, 17, 37])
   end
+
+  it 'peeks correctly' do
+    heap = Heap.new
+    heap.store = [1, 7, 2, 19]
+    expect(heap.peek).to eq(1)
+  end
   
 end
