@@ -100,4 +100,25 @@ describe LinkedList do
     expect(list[1].value).to eq(6)
     expect(list[2].value).to eq(5)
   end
+
+  it 'correctly says that non-cyclic lists are non-cyclic' do
+    [1, 2, 3, 4, 5].each do |val|
+      list.push(val)
+    end
+
+    expect(list.cyclic?).to be false
+  end
+
+  it 'correctly says that cyclic lists are cyclic' do
+    link1 = Link.new(1)
+    link2 = Link.new(2)
+    link3 = Link.new(3)
+    list.push_link(link1)
+    list.push_link(link2)
+    list.push_link(link3)
+    link1.next = link2
+    link2.next = link3
+    link3.next = link1
+    expect(list.cyclic?).to be true
+  end
 end

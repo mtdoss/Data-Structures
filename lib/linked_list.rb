@@ -62,6 +62,7 @@ class LinkedList
   end
 
   # mimicing a singly linked list
+  # Doesn't actually make sense in the context of a doubly linked list
   def reverse!
     raise "Empty linked list!" if first.next == last
     head = first.next
@@ -81,4 +82,19 @@ class LinkedList
     first.next = last_link
   end
 
+  def cyclic?
+    link = first.next
+    fast_runner = link
+    slow_runner = link
+
+    while true
+      2.times do 
+        fast_runner = fast_runner.next
+        return false if fast_runner == last
+        return true if fast_runner == slow_runner
+      end
+
+      slow_runner = slow_runner.next
+    end
+  end
 end
