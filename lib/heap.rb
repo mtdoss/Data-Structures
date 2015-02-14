@@ -26,10 +26,10 @@ class Heap
 
     if child_val >= parent_val
       return arr
+    else
+      arr[child_idx], arr[parent_idx] = parent_val, child_val
+      heapify_up(arr, parent_idx)
     end
-
-    arr[child_idx], arr[parent_idx] = parent_val, child_val
-    heapify_up(arr, parent_idx)
   end
 
   def self.heapify_down(arr, parent_idx, len = arr.length)
