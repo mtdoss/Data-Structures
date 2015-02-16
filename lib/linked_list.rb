@@ -98,11 +98,12 @@ class LinkedList
     end
   end
 
+  # not working right now; hard to try to emulate a singly linked list!
   def reverse_recur!
     head = first.next
-    next_node = node.next
+    next_node = head.next
     return head if next_node.nil?
-    node.next = nil
-    next_node = next_node.reverse!
+    head.next = nil
+    next_node = next_node.reverse_recur!
   end
 end

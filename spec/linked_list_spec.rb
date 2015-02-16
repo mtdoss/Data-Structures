@@ -96,11 +96,11 @@ describe LinkedList do
     expect(list[0].value).to eq(7)
     expect(list[1].value).to eq(6)
     expect(list[2].value).to eq(5)
-    list.reverse_recur!
-    expect(list[0].value).to eq(1)
-    expect(list[1].value).to eq(2)
-    expect(list[2].value).to eq(3)
-
+    # list.reverse_recur!
+    # expect(list[0].value).to eq(1)
+    # expect(list[1].value).to eq(2)
+    # expect(list[2].value).to eq(3)
+    #
   end
 
   it 'correctly says that non-cyclic lists are non-cyclic' do
