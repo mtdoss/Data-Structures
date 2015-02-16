@@ -97,4 +97,12 @@ class LinkedList
       slow_runner = slow_runner.next
     end
   end
+
+  def reverse_recur!
+    head = first.next
+    next_node = node.next
+    return head if next_node.nil?
+    node.next = nil
+    next_node = next_node.reverse!
+  end
 end

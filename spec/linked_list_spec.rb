@@ -92,13 +92,15 @@ describe LinkedList do
     [1, 2, 3, 4, 5, 6, 7].each do |val|
       list.push(val)
     end
-    expect(list[0].value).to eq(1)
-    expect(list[1].value).to eq(2)
-    expect(list[2].value).to eq(3)
     list.reverse!
     expect(list[0].value).to eq(7)
     expect(list[1].value).to eq(6)
     expect(list[2].value).to eq(5)
+    list.reverse_recur!
+    expect(list[0].value).to eq(1)
+    expect(list[1].value).to eq(2)
+    expect(list[2].value).to eq(3)
+
   end
 
   it 'correctly says that non-cyclic lists are non-cyclic' do
@@ -122,14 +124,4 @@ describe LinkedList do
     expect(list.cyclic?).to be true
   end
 
-  it 'correctly reverses' do
-    [5, 4, 3, 2, 1].each do |val|
-      list.push(val)
-    end
-
-    list.reverse!
-    [1, 2, 3, 4, 5].each do |idx|
-      expect(list[idx].value).to eq(idx)
-    end
-  end
 end
