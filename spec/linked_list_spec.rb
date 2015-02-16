@@ -121,4 +121,15 @@ describe LinkedList do
     link3.next = link1
     expect(list.cyclic?).to be true
   end
+
+  it 'correctly reverses' do
+    [5, 4, 3, 2, 1].each do |val|
+      list.push(val)
+    end
+
+    list.reverse!
+    [1, 2, 3, 4, 5].each do |idx|
+      expect(list[idx].value).to eq(idx)
+    end
+  end
 end
