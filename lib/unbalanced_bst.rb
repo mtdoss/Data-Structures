@@ -45,17 +45,25 @@ class BST
     p node.value
     in_order(node.right)
   end
+
+  def self.pre_order(node)
+    return if node.nil?
+    p node.value
+    pre_order(node.left)
+    pre_order(node.right)
+  end
+
+  def self.post_order(node)
+    return if node.nil?
+    post_order(node.left)
+    post_order(node.right)
+    p node.value
+  end
 end
 
 
 test = BST.new
-test.insert(5)
-test.insert(4)
-test.insert(7)
-test.insert(15)
-test.insert(1)
-test.insert(2)
-test.insert(8)
-test.insert(3)
-test.insert(15)
+[5, 4, 7, 15, 1, 2, 8, 3, 15].each do |val|
+  test.insert(val)
+end
 BST::in_order(test.root)
