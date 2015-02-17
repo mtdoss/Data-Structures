@@ -8,8 +8,9 @@ class Node
 end
 
 class BST
+  attr_accessor :root
   def initialize
-    @root = Node.new(nil)
+    @root = nil
   end
 
   def insert(val)
@@ -38,7 +39,7 @@ class BST
     end
   end
 
-  def in_order(node)
+  def self.in_order(node)
     return if node.nil?
     in_order(node.left)
     p node.value
@@ -56,4 +57,5 @@ test.insert(1)
 test.insert(2)
 test.insert(8)
 test.insert(3)
-in_order(test.root)
+test.insert(15)
+BST::in_order(test.root)
