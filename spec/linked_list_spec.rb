@@ -132,4 +132,12 @@ describe LinkedList do
     expect(list.middle_val).to eq(3)
   end
 
+  it 'correctly finds the middle element in an even list ' do
+    [1, 2, 3, 4, 5, 6].each do |val|
+      list.push(val)
+    end
+
+    expect([3, 4]).to include(list.middle_val)
+  end
+
 end

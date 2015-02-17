@@ -106,4 +106,18 @@ class LinkedList
     head.next = nil
     next_node = next_node.reverse_recur!
   end
+  
+  def middle_val
+    slow = first
+    fast = first
+    until fast == last
+      2.times do 
+        break if fast.next.nil?
+        fast = fast.next
+      end
+      slow = slow.next
+    end
+
+    slow.value
+  end
 end
