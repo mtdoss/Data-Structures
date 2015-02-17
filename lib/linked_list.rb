@@ -112,7 +112,7 @@ class LinkedList
     fast = first
     until fast == last
       2.times do 
-        break if fast.next.nil?
+        break if fast == last
         fast = fast.next
       end
       slow = slow.next
