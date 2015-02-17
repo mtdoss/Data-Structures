@@ -59,6 +59,16 @@ class BST
     post_order(node.right)
     p node.value
   end
+
+  def self.include?(node, val)
+    return false if node.nil?
+    return true if val == node.value
+    if val <= node.value
+      return include?(node.left, val)
+    else
+      return include?(node.right, val)
+    end
+  end
 end
 
 
@@ -67,3 +77,6 @@ test = BST.new
   test.insert(val)
 end
 BST::in_order(test.root)
+p BST::include?(test.root, 1)
+p BST::include?(test.root, 8)
+p BST::include?(test.root, 20)
