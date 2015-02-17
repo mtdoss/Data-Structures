@@ -124,4 +124,12 @@ describe LinkedList do
     expect(list.cyclic?).to be true
   end
 
+  it 'correctly finds the middle element in an odd list' do
+    [1, 2, 3, 4, 5].each do |val|
+      list.push(val)
+    end
+
+    expect(list.middle_val).to eq(3)
+  end
+
 end
