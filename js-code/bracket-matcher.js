@@ -3,12 +3,12 @@ function bracketMatcher(str) {
   for (var i = 0; i < str.length; i++) {
     var char = str.charAt(i);
     if (char === "[" || char === "(") {
-      stack.push(str.charAt(i));
+      stack.push(char);
     }
-    if (char === "]" && stack.pop !== "[") {
+    if (char === "]" && stack.pop() !== "[") {
       return false;
     }
-    if (char === ")" && stack.pop !== "(") {
+    if (char === ")" && stack.pop() !== "(") {
       return false;
     }
   }  
