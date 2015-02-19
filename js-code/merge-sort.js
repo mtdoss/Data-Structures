@@ -1,5 +1,7 @@
+/*jshint globalstrict: true*/
+"use strict";
 function merge (arr1, arr2) {
-  result = [];
+  var result = [];
   while (arr1.length > 0 && arr2.length > 0) {
     if (arr1[0] < arr2[0]) {
       result.push(arr1.shift());
@@ -16,11 +18,12 @@ var mergeSort = function (arr) {
     return arr;
   }
   // console.log(arr.length);
-  mid = Math.floor(arr.length / 2);
-  len = arr.length;
+  var mid = Math.floor(arr.length / 2);
+  var len = arr.length;
 
-  leftArray = arr.slice(0, mid);
-  rightArray = arr.slice(mid, len);
+  var leftArray = arr.slice(0, mid);
+
+  var rightArray = arr.slice(mid, len);
 
   console.log("Left array is " + leftArray);
   console.log("Right array is " + rightArray);
