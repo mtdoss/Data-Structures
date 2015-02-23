@@ -10,6 +10,7 @@ class QuickSort
         arr[idx] = arr[pivot_idx + 1]
         arr[pivot_idx + 1] = arr[pivot_idx]
         arr[pivot_idx] = val
+        pivot_idx += 1
       end
 
     end
