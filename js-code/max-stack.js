@@ -22,7 +22,7 @@ MinMaxStack.prototype.push = function(val) {
 };
 
 MinMaxStack.prototype.pop = function (val) {
-  return this.values.pop.value;
+  return this.values.pop().value;
 };
 
 MinMaxStack.prototype.max = function () {
@@ -32,3 +32,9 @@ MinMaxStack.prototype.max = function () {
 MinMaxStack.prototype.min = function () {
   return this.values.length === 0 ? null : this.values[this.values.length - 1].min;
 };
+
+var stack = new MinMaxStack();
+stack.push(5);
+console.log(stack);
+stack.pop();
+console.log(stack);
